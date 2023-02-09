@@ -1,4 +1,7 @@
-import { Prop, raw, Schema } from '@nestjs/mongoose';
+import { Prop, raw, Schema, SchemaFactory } from '@nestjs/mongoose';
+import { Document } from 'mongoose';
+
+export type RouteDocument = Route & Document;
 
 @Schema()
 export class Route {
@@ -21,3 +24,6 @@ export class Route {
   )
   endPosition: { lat: Number; lng: number};
 }
+
+export const RouteSchema = SchemaFactory.createForClass(Route)
+
